@@ -10,7 +10,7 @@ const state: State = reactive({
 });
 const fetchData = async () => {
   try {
-    const res = await fetch('http://localhost:5000/rss');
+    const res = await fetch('http://localhost:1234/rss');
     const json = await res.json();
     state.response = json;
   } catch (err) {

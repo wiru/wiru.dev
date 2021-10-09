@@ -6,9 +6,10 @@
     <i></i>
     </div>
     <img id="stars" ref="stars" src="@/assets/stars.svg" alt="">
-    <img id="planet" ref="planet" src="@/assets/planet.svg" alt="">
-    <img id="foreground" src="@/assets/Foreground.png" alt="">
-    <h2 id="about_me" :style="styleObject">About Me</h2>
+    <img id="planet" ref="planet" src="@/assets/planet.png" alt="">
+    <img id="redGiant" ref="redGiant" src="@/assets/red-giant.png" alt="">
+    <img id="foreground" src="@/assets/alien_landscape2.png" alt="">
+    <h2 id="about_me" :style="styleObject">About Alix Fachin</h2>
   </section>
 </template>
 
@@ -22,17 +23,23 @@ export default defineComponent({
   setup() {
     const stars = ref();
     const planet = ref();
+    const redGiant = ref();
+
     const styleObject = reactive({ marginTop: '' });
     onMounted(() => {
       window.addEventListener('scroll', () => {
         const scr = window.scrollY;
         stars.value.style.left = `${scr / 10}px`;
-        planet.value.style.bottom = `-${scr * 0.2}px`;
-        planet.value.style.right = `-${scr * 0.5}px`;
+        redGiant.value.style.top = `-${scr * 0.2}px`;
+        redGiant.value.style.left = `-${scr * 0.5}px`;
+        planet.value.style.top = `${scr * 0.2}px`;
+        planet.value.style.right = `-${scr * 1}px`;
         styleObject.marginTop = `${scr * 1.5}px`;
       });
     });
-    return { stars, planet, styleObject };
+    return {
+      stars, planet, redGiant, styleObject,
+    };
   },
 });
 </script>
@@ -69,12 +76,34 @@ section:before {
 }
 #planet {
   position: absolute;
-  max-width: 70vw;
-  position: relative;
-  margin-top: 100vh;
-  z-index: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin-top: 50vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60vw;
   box-shadow: 0px 0px 50px rgb(191, 255, 179);
   border-radius: 50%;
+  z-index: 1;
+}
+#redGiant {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin-top: 50vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30vw;
+  box-shadow:
+  0px 0px 10px rgb(255, 102, 0),
+  0px 0px 20px rgb(255, 102, 0),
+  0px 0px 40px rgb(255, 102, 0),
+  0px 0px 80px rgb(255, 102, 0),
+  0px 0px 100px rgb(255, 102, 0),;
+  border-radius: 50%;
+  z-index: 0;
 }
 #foreground {
   position: absolute;
