@@ -2,8 +2,7 @@
   <section>
     <img src="@/assets/cell-phone.png" alt="Cell Phone">
     <span>Reactive Design</span>
-    <p>Visit this site on mobile. With the ever increasing ways to
-      consume web content, we need to make sure our designs are reactive</p>
+    <p>Check out this site on your mobile too!</p>
   </section>
 </template>
 

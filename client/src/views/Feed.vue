@@ -1,4 +1,4 @@
-<template :key="store.state.articleLimit">
+<template :key="articleLimit">
   <div class="root">
     <div class="introText">
     A simple newsfeed from space.com to demonstrate a reactive CSS Grid layout
@@ -6,11 +6,11 @@
   <Suspense>
     <template #default>
       <section>
-        <article v-for="index in store.state.articleLimit || []" :key="index">
-          <a :href="store.state.response[index-1].guid">
-            <img :src=store.state.response[index-1].enclosure.url alt="">
-            <h1>{{ store.state.response[index-1].title }}</h1>
-            <p>{{ store.state.response[index-1].content }}</p>
+        <article v-for="index in articleLimit" :key="index">
+          <a :href="feedData[index-1].link">
+            <img :src=feedData[index-1].img alt="">
+            <h1>{{ feedData[index-1].title }}</h1>
+            <p>{{ feedData[index-1].content }}</p>
           </a>
         </article>
       </section>
@@ -24,38 +24,71 @@
 
 <script lang="ts">
 import {
-  defineComponent, inject, onUnmounted,
+  defineComponent, onUnmounted, reactive, ref,
 } from 'vue';
+import Parser from 'rss-parser';
 
-interface State {
-    response: string,
-    articleLimit: number,
-}
-interface Methods {
-    toggleSidebar: any,
-}
-interface Store {
-    methods: Methods,
-    state: State,
-}
+type Article = {
+  title: string,
+  content: string,
+  link: string,
+  img: string,
+};
+const maxTitleLength = 50;
+const maxContentLength = 80;
+const parser = new Parser();
 
 export default defineComponent({
   name: 'Feed',
   setup() {
     window.scrollTo(0, 0);
-    const store: Store | undefined = inject('store');
-    console.log(store);
+
+    const articleLimit = ref(12);
+    const feedData = reactive<Article[]>([{
+      title: '',
+      content: '',
+      img: '',
+      link: '',
+    }]);
+    async function fetch() {
+      const feed = await parser.parseURL('http://localhost:8080/feeds/all/');
+      feed.items.slice(0, 12).forEach((item, index) => {
+        if (item.guid && item.title && item.content && item.enclosure && item.isoDate) {
+          feedData[index] = {
+            title: '',
+            content: '',
+            img: '',
+            link: '',
+          };
+          if (item.title.length > maxTitleLength) {
+            feedData[index].title = item.title.substring(0, 45);
+          } else {
+            feedData[index].title = item.title;
+          }
+          if (item.content.length > maxContentLength) {
+            feedData[index].content = item.content.substring(0, 70);
+          } else {
+            feedData[index].content = item.content;
+          }
+          feedData[index].link = item.guid;
+          feedData[index].img = item.enclosure.url;
+        }
+      });
+    }
+    fetch();
+
     const articleLimitResize = () => {
-      if (store) {
+      console.log(articleLimit.value);
+      if (articleLimit.value) {
         if (window.innerWidth < 650) {
-          store.state.articleLimit = 6;
+          articleLimit.value = 6;
         } else if (window.innerWidth < 900) {
-          store.state.articleLimit = 8;
+          articleLimit.value = 8;
         } else if (window.innerWidth < 1050) {
-          store.state.articleLimit = 11;
+          articleLimit.value = 11;
         } else if (window.innerWidth < 1300) {
-          store.state.articleLimit = 11;
-        } else store.state.articleLimit = 12;
+          articleLimit.value = 11;
+        } else articleLimit.value = 12;
       }
     };
     articleLimitResize();
@@ -63,9 +96,10 @@ export default defineComponent({
     onUnmounted(() => {
       window.removeEventListener('resize', articleLimitResize);
     });
-    return { store };
+    return { articleLimit, feedData };
   },
 });
+
 </script>
 
 <style lang="scss" scoped>

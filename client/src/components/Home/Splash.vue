@@ -5,7 +5,6 @@
       <div id="inspire">Inspire.</div>
     </div>
   </section>
-  <div class="triangle"></div>
 </template>
 
 <style lang="scss" scoped>
@@ -17,17 +16,6 @@ section {
   padding: 10vh 0px 7vh 0px;
   overflow: hidden;
 }
-
-.triangle {
-  content: '';
-  width: 100%;
-  height: 0;
-  border-bottom: 10vw solid $secondary;
-  border-left: 99vw solid transparent;
-  z-index: 1;
-  margin-bottom: -1px;
-}
-
 .splash {
   display: flex;
   border-right: 5px solid $off-white;

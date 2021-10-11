@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent, provide } from 'vue';
-import store from '@/store';
+import store from './store';
 import Navbar from './components/Navbar/Navbar.vue';
 import Footer from './components/Footer/Footer.vue';
 

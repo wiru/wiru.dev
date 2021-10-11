@@ -1,6 +1,5 @@
 <template>
   <div class="flex-page-wrapper">
-    <Space/>
     <div id="triggerBox1"></div>
     <section class="content-container top">
       <div class="left-content">
@@ -34,13 +33,9 @@
 
 <script lang="ts">
 import { defineComponent, onMounted } from 'vue';
-import Space from '../components/About/Space.vue';
 
 export default defineComponent({
   name: 'Home',
-  components: {
-    Space,
-  },
   setup() {
     window.scrollTo(0, 0);
 

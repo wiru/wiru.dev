@@ -1,15 +1,15 @@
 <template>
   <section>
-        <span>Modern Frameworks</span>
-        <p>Staying up to date with popular frameworks is vital to keep
-        our web content fresh and clean</p>
+        <span>Tech Stack</span>
+        <p>wiru.dev is powered by</p>
         <div class="anim-container">
-          <img class="logo" src="@/assets/vue-logo.svg" alt="Vue Logo" stroke="white">
-          <img class="logo delay" src="@/assets/react-logo.svg
-" alt="React Logo">
+          <img class="logo" src="../../assets/vue-logo.svg" alt="Vue Logo">
+          <img class="logo delay" src="../../assets/typescript-logo.svg" alt="Typescript Logo"
+          stroke="white">
+          <img class="logo" src="../../assets/sass-logo.svg" alt="Sass Logo">
         </div>
+        <p>with no other dependancies</p>
   </section>
-  <div class="triangle"></div>
 </template>
 
 <script lang="ts">
@@ -35,12 +35,6 @@ section {
   justify-content: center;
   align-items: center;
   padding: 20px;
-}
-.triangle {
-  border-top: 10vw solid $secondary;
-  border-left: 100vw solid transparent;
-  z-index: 1;
-  margin-top: -1px;
 }
 .anim-container {
   display: flex;

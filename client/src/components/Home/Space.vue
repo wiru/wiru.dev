@@ -9,7 +9,9 @@
     <img id="planet" ref="planet" src="@/assets/planet.png" alt="">
     <img id="redGiant" ref="redGiant" src="@/assets/red-giant.png" alt="">
     <img id="foreground" src="@/assets/alien_landscape2.png" alt="">
-    <h2 id="about_me" :style="styleObject">About Alix Fachin</h2>
+    <h2 id="about_me" :style="styleObject"><span class="w">
+      w</span>elcome to <span class="w">
+      w</span>iru.dev</h2>
   </section>
 </template>
 
@@ -62,9 +64,9 @@ section:before {
   content: '';
   position: absolute;
   bottom: 0;
-  height: 10px;
+  height: 30px;
   width: 100%;
-  background-image: linear-gradient(to top, rgb(43,103,119,1), rgb(43,103,119,0));
+  background-image: linear-gradient(to top, ($secondary), ($secondary-fade));
   z-index: 3;
 }
 #stars {
@@ -196,5 +198,9 @@ section:before {
     transform:translate3d(700px,580px,0) rotate(-50deg);
     opacity: 0;
   }
+}
+.w{
+  font-size: 1em;
+  color: $primary;
 }
 </style>
