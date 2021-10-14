@@ -113,43 +113,48 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 40px;
-}
-.icon-container {
-  display: grid;
-  grid-template-columns: repeat(6, 100px);
-  grid-auto-rows: 100px;
-  padding: 20px;
-  gap: 5px;
-  .icons {
-    opacity: 1;
+  padding: 40px 0 40px 0;
+  .header {
+    color: $secondary;
+  }
+  .icon-container {
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    grid-auto-rows: 100px;
+    padding: 20px;
     width: 100%;
-    height: 100%;
-    border: none;
-    box-shadow: none;
-  }
-  .js {
-    background-color: rgb(255, 246, 166);
-  }
-  .ts {
-    background-color: rgb(144, 170, 255);
-  }
-  .vue {
-    background-color: rgb(157, 255, 161);
-  }
-  .react {
-    background-color: rgb(146, 246, 255);
-  }
-  .node {
-    background-color: rgb(155, 255, 172);
-  }
-  .gql {
-    background-color: rgb(255, 183, 239);
-  }
+    overflow: scroll;
+    gap: 5px;
+    .icons {
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+      box-shadow: none;
+    }
+    .js {
+      background-color: rgb(255, 246, 166);
+    }
+    .ts {
+      background-color: rgb(144, 170, 255);
+    }
+    .vue {
+      background-color: rgb(157, 255, 161);
+    }
+    .react {
+      background-color: rgb(146, 246, 255);
+    }
+    .node {
+      background-color: rgb(155, 255, 172);
+    }
+    .gql {
+      background-color: rgb(255, 183, 239);
+    }
+}
 }
 .content-container {
   display: flex;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -183,7 +188,7 @@ blockquote {
   width: 35%;
   opacity: 0;
   transition: transform 2s ease, opacity 3s ease;
-  font-size: min(max(15px, 2.5vw), 30px);
+  font-size: min(max(20px, 2.5vw), 30px);
 }
 .top-quote {
   transform: translateX(50%);
@@ -227,15 +232,18 @@ img {
   blockquote {
     width: 80%;
   }
-  .top-blockquote {
-    padding-right: 0;
+  .top-quote {
+    align-self: flex-start;
+    padding: 0 0 20px 20px;
     text-align: left;
   }
-  .bottom-blockquote {
-    align-self: right;
+  .bottom-quote {
+    align-self: flex-end;
+    padding: 20px 20px 0 0;
+    text-align: right;
   }
   .img1, .img3 {
-    width: 90%;
+    width: 100%;
   }
 }
 </style>

@@ -9,6 +9,9 @@
 
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
+a {
+  text-decoration: none;
+}
 #me-polaroid {
   display: flex;
   flex-direction: column;
@@ -25,6 +28,13 @@
   z-index: 1;
   transition: .3s ease-in-out;
   box-shadow: .1rem .1rem 1rem .5rem rgba(0,0,0,0.2);
+}
+@media screen and (max-width: 600px) {
+  #me-polaroid {
+    position: relative;
+    margin: 20px;
+    padding: 5px;
+  }
 }
 img {
   width: 100%;

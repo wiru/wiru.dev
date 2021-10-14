@@ -16,6 +16,11 @@ section {
   padding: 10vh 0px 7vh 0px;
   overflow: hidden;
 }
+@media screen and (max-width: 600px) {
+  section {
+    padding: 25px 0 10px 0;
+  }
+}
 .splash {
   display: flex;
   border-right: 5px solid $off-white;
