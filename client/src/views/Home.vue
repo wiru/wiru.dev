@@ -2,15 +2,13 @@
   <div class="home">
     <Name />
     <Space />
-    <Splash />
     <TriangleL />
     <Projects />
     <TriangleR />
     <Reactive />
     <TriangleL />
-    <Framework />
+    <TechStack />
     <TriangleR />
-    <Reactive />
   </div>
 </template>
 
@@ -18,11 +16,10 @@
 import { defineComponent, inject } from 'vue';
 import Name from '../components/Home/Name.vue';
 import Space from '../components/Home/Space.vue';
-import Splash from '../components/Home/Splash.vue';
 import TriangleL from '../components/Home/TriangleL.vue';
 import TriangleR from '../components/Home/TriangleR.vue';
-import Projects from '../components/Home/Projects.vue';
-import Framework from '../components/Home/Framework.vue';
+import Projects from '../components/Home/Projects/Projects.vue';
+import TechStack from '../components/Home/TechStack.vue';
 import Reactive from '../components/Home/Reactive.vue';
 
 export default defineComponent({
@@ -30,11 +27,10 @@ export default defineComponent({
   components: {
     Name,
     Space,
-    Splash,
     TriangleL,
     TriangleR,
     Projects,
-    Framework,
+    TechStack,
     Reactive,
   },
   setup() {

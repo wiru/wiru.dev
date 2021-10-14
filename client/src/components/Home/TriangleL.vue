@@ -9,6 +9,6 @@
   border-bottom: 10vw solid $secondary;
   border-left: 99vw solid transparent;
   z-index: 1;
-  margin-bottom: -1px;
+  margin: -1px 0 -1px 0;
 }
 </style>

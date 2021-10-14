@@ -8,7 +8,7 @@
     <img id="stars" ref="stars" src="@/assets/stars.svg" alt="">
     <img id="planet" ref="planet" src="@/assets/planet.png" alt="">
     <img id="redGiant" ref="redGiant" src="@/assets/red-giant.png" alt="">
-    <img id="foreground" src="@/assets/alien_landscape2.png" alt="">
+    <img id="foreground" src="@/assets/foreground.png" alt="">
     <h2 id="about_me" :style="styleObject"><span class="w">
       w</span>elcome to <span class="w">
       w</span>iru.dev</h2>
@@ -64,7 +64,7 @@ section:before {
   content: '';
   position: absolute;
   bottom: 0;
-  height: 30px;
+  height: 15px;
   width: 100%;
   background-image: linear-gradient(to top, ($secondary), ($secondary-fade));
   z-index: 3;
@@ -123,6 +123,7 @@ section:before {
   color: $off-white;
   font-size: min(max(60px, 10vw), 120px);
   font-family: $main-font;
+  text-align: center;
   z-index: 1;
 }
 

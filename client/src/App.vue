@@ -38,6 +38,9 @@ export default defineComponent({
   padding: 0;
   font-family: $main-font;
 }
+body {
+  background: $primary;
+}
 p {
   font-size: min(max(20px, 3vw), 40px);
   font-family: Bahnschrift Condensed;
@@ -53,7 +56,6 @@ span {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: auto;
-  background: $primary;
   display: flex;
   flex-direction: column;
   height: 100%;

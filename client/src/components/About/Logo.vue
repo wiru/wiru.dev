@@ -1,8 +1,10 @@
 <template>
-<div id="me-polaroid">
-  <img src="../../assets/will-cropped.jpg" alt="">
-  <span>Will Saville</span>
-</div>
+  <a href="https://www.linkedin.com/in/wiru/" target="_blank">
+    <div id="me-polaroid">
+      <img src="../../assets/will-cropped.jpg" alt="">
+      <span>Will Saville</span>
+    </div>
+  </a>
 </template>
 
 <style lang="scss" scoped>

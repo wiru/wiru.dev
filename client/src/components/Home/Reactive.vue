@@ -1,8 +1,8 @@
 <template>
   <section>
     <img src="@/assets/cell-phone.png" alt="Cell Phone">
-    <span>Reactive Design</span>
-    <p>Check out this site on your mobile too!</p>
+    <span>Mobile friendly</span>
+    <p>Check out this site on your mobile!</p>
   </section>
 </template>
 
@@ -28,6 +28,7 @@ section {
   grid-template-rows: auto auto;
   align-self: center;
   justify-items: center;
+  align-items: center;
 }
 span {
   color: $secondary;

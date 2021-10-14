@@ -1,9 +1,10 @@
 <template :key="articleLimit">
   <div class="root">
     <div class="introText">
-    A simple newsfeed from space.com to demonstrate a reactive CSS Grid layout
-  </div>
-  <Suspense>
+      <p id="header">An rss newsfeed from space.com. Demonstrating a responsive CSS Grid layout.
+      A proxy is set up in order to satisfy CORS requirements.</p>
+      </div>
+  <Suspense timeout="0">
     <template #default>
       <section>
         <article v-for="index in articleLimit" :key="index">
@@ -16,7 +17,7 @@
       </section>
     </template>
     <template #fallback>
-      <div>Loading...</div>
+      <div>Loading....</div>
     </template>
   </Suspense>
   </div>
@@ -61,12 +62,12 @@ export default defineComponent({
             link: '',
           };
           if (item.title.length > maxTitleLength) {
-            feedData[index].title = item.title.substring(0, 45);
+            feedData[index].title = `${item.title.substring(0, 45)}..`;
           } else {
             feedData[index].title = item.title;
           }
           if (item.content.length > maxContentLength) {
-            feedData[index].content = item.content.substring(0, 70);
+            feedData[index].content = `${item.content.substring(0, 70)}..`;
           } else {
             feedData[index].content = item.content;
           }
@@ -112,10 +113,12 @@ export default defineComponent({
 .introText {
   width: 100%;
   background-color: $secondary;
-  color: $primary;
-  text-align: center;
-  font-size: $p-font-size;
   padding: 1vw;
+  font-size: $p-font-size;
+}
+p {
+  color: $primary;
+  text-align: left;
 }
 section {
   display: grid;
@@ -242,9 +245,9 @@ article {
 a > * {
     padding: 10px;
   }
-p {
-  font-size: 10px;
-  color: black;
+#header {
+  max-width: 90%;
+  color: $primary;
   text-align: left;
 }
 a {

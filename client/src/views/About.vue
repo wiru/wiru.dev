@@ -1,41 +1,64 @@
 <template>
   <div class="flex-page-wrapper">
-    <div id="triggerBox1"></div>
+    <Logo />
+    <Splash />
     <section class="content-container top">
-      <div class="left-content">
+      <div id="triggerBox1"></div>
+      <div class="content">
         <blockquote class="top-quote animSet1">
-          I love sports, chess, games, and
-          hanging out with friends and family.
-          At a young age I was heavily involved in
-          the UK Martial Arts scene, fighting at a
-          National and European level.
+          After graduating from UCLan in the UK I moved to Japan to
+          teach English for a few years. Then I met my wonderful wife
+          and decided to pursue a career in programming. I joined
+          Code Chrysalis Advanced Programming course and am looking
+          for a long term role in Japan.
         </blockquote>
         <img class="img1 animSet1" src="../assets/fun.jpg" alt="">
       </div>
-      <img class="img2 animSet1" src="../assets/code.jpg" alt="">
     </section>
-    <div id="triggerBox2"></div>
+    <section class="skills">
+      <span class="header">What can I do?</span>
+      <div class="icon-container">
+        <img class="icons js" src="../assets/Javascript-logo.svg" alt="">
+        <img class="icons ts" src="../assets/typescript-logo.svg" alt="">
+        <img class="icons vue" src="../assets/vue-logo.svg" alt="">
+        <img class="icons react" src="../assets/react-logo.svg" alt="">
+        <img class="icons node" src="../assets/Node.js_logo.svg" alt="">
+        <img class="icons gql" src="../assets/graphql-logo.svg" alt="">
+        <!-- <img class="icons" src="../assets" alt="">
+        <img class="icons" src="../assets" alt="">
+        <img class="icons" src="../assets" alt="">
+        <img class="icons" src="../assets" alt="">
+        <img class="icons" src="../assets" alt="">
+        <img class="icons" src="../assets" alt=""> -->
+      </div>
+    </section>
     <section class="content-container bottom">
-      <div class="left-content">
-        <img class="img3 animSet2" src="../assets/fun.jpg" alt="">
+      <div id="triggerBox2"></div>
+      <div class="content">
+        <img class="img3 animSet2" src="../assets/fun.jpg">
         <blockquote class="bottom-quote animSet2">
-          I love sports, chess, games, and
-          hanging out with friends and family.
-          At a young age I was heavily involved in
-          the UK Martial Arts scene, fighting at a
-          National and European level.
+          I am located in Tokyo, 5 minutes from Shibuya. I have a
+          long term Spousal VISA. I am looking forward to
+          meeting you and cannot wait to get started creating
+          wonderful content and cantinuing my professional
+          growth.
         </blockquote>
       </div>
-      <img class="img4 animSet2" src="../assets/code.jpg" alt="">
     </section>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted } from 'vue';
+import Splash from '../components/About/Splash.vue';
+import Logo from '../components/About/Logo.vue';
 
 export default defineComponent({
   name: 'Home',
+  components: {
+    Logo,
+    Splash,
+  },
   setup() {
     window.scrollTo(0, 0);
 
@@ -84,9 +107,49 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
 }
+.skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 40px;
+}
+.icon-container {
+  display: grid;
+  grid-template-columns: repeat(6, 100px);
+  grid-auto-rows: 100px;
+  padding: 20px;
+  gap: 5px;
+  .icons {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    border: none;
+    box-shadow: none;
+  }
+  .js {
+    background-color: rgb(255, 246, 166);
+  }
+  .ts {
+    background-color: rgb(144, 170, 255);
+  }
+  .vue {
+    background-color: rgb(157, 255, 161);
+  }
+  .react {
+    background-color: rgb(146, 246, 255);
+  }
+  .node {
+    background-color: rgb(155, 255, 172);
+  }
+  .gql {
+    background-color: rgb(255, 183, 239);
+  }
+}
 .content-container {
   display: flex;
-  padding: 5px;
+  padding: 20px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -96,9 +159,9 @@ export default defineComponent({
   background-image: url(../assets/diagonal.svg);
 }
 .bottom {
-  background-image: url(../assets/diagonal-left-btm.svg);
+  background-image: url(../assets/diagonal-right-btm.svg);
 }
-.left-content {
+.content {
   height: fit-content;
   display: flex;
   justify-content: center;
@@ -106,21 +169,21 @@ export default defineComponent({
 }
 #triggerBox1 {
   position: relative;
-  height: 100px;
+  height: 5vh;
   margin: -1px 0 -1px 0;
   background-color: $primary;
 }
 #triggerBox2 {
   position: relative;
-  height: 200px;
+  height: 5vh;
+  width: 100%;
   margin: -1px 0 -1px 0;
-  background-color: $secondary;
 }
 blockquote {
   width: 35%;
   opacity: 0;
   transition: transform 2s ease, opacity 3s ease;
-  font-size: min(max(1px, 2.5vw), 30px);
+  font-size: min(max(15px, 2.5vw), 30px);
 }
 .top-quote {
   transform: translateX(50%);
@@ -132,41 +195,47 @@ blockquote {
   transform: translateX(-50%);
   text-align: left;
   padding-left: 3vw;
-  color: $primary;
+  color: $secondary;
 }
 img {
   // mask-size: 100% 100%;
   opacity: 0;
   transition: transform 2s ease, opacity 3s ease;
   will-change: transform, opacity;
-  min-height: 100%;
   background-color: $secondary;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 .img1 {
   // mask-image: url(../assets/white-overlay-stagger.svg);
   width: 40%;
+  height: auto;
   transform: translateX(-50%);
-}
-.img2 {
-  // mask-image: url(../assets/white-overlay-stagger-right.svg);
-  width: 30%;
-  margin-right: 10%;
-  transform: translateX(50%);
 }
 .img3 {
   // mask-image: url(../assets/white-overlay-stagger.svg);
   width: 40%;
   transform: translateX(-50%);
 }
-.img4 {
-  // mask-image: url(../assets/white-overlay-stagger-right.svg);
-  width: 30%;
-  margin-right: 10%;
-  transform: translateX(50%);
-}
 .visible {
   opacity: 1;
   transform: none;
+}
+@media screen and (max-width: 520px) {
+  .content {
+    flex-direction: column;
+  }
+  blockquote {
+    width: 80%;
+  }
+  .top-blockquote {
+    padding-right: 0;
+    text-align: left;
+  }
+  .bottom-blockquote {
+    align-self: right;
+  }
+  .img1, .img3 {
+    width: 90%;
+  }
 }
 </style>
