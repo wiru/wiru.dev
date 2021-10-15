@@ -28,8 +28,9 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes,
+  scrollBehavior: () => ({ left: 0, top: 0 }),
 });
 
 export default router;

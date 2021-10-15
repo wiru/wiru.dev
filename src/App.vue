@@ -40,6 +40,7 @@ export default defineComponent({
 }
 body {
   background: $primary;
+  height: 100%;
 }
 p {
   font-size: min(max(20px, 3vw), 40px);

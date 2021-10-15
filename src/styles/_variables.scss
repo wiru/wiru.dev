@@ -11,10 +11,6 @@ $main-font: Bahnschrift Condensed;
 $h-font-size: min(max(40px, 6vw), 80px);
 $p-font-size: min(max(20px, 3vw), 30px);
 
-// $primary: #2b6777;
-// $secondary: #c8d8e4;
-// $tertiary: #52ab98;
-
 @mixin small-tile {
 	p { font-size: 1.1rem; padding: 10px; color: $black; background-color: unset; }
   h1 { font-size: 1.2rem; height: 40%; padding: 10px; color: inherit; line-clamp: 1; background-color: unset; }
@@ -29,4 +25,9 @@ $p-font-size: min(max(20px, 3vw), 30px);
   p { font-size: 1.5rem; color: $off-white; padding: 0 20px 20px 20px; z-index: 2; position: relative; background-color: $tertiary-faded;}
   h1 { font-size: 2rem; color: $off-white; padding: 20px; z-index: 2; position: relative; background-color: $tertiary-faded;}
   img { width: 100%; height: 100%; position: absolute; object-fit: cover; }
+}
+@mixin align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Name />
-    <Space />
+    <ParallaxTest />
     <TriangleL />
     <Projects />
     <TriangleR />
@@ -15,7 +15,7 @@
 <script lang="ts">
 import { defineComponent, inject } from 'vue';
 import Name from '../components/Home/Name.vue';
-import Space from '../components/Home/Space.vue';
+import ParallaxTest from '../components/Home/ParallaxTest.vue';
 import TriangleL from '../components/Home/TriangleL.vue';
 import TriangleR from '../components/Home/TriangleR.vue';
 import Projects from '../components/Home/Projects/Projects.vue';
@@ -26,7 +26,7 @@ export default defineComponent({
   name: 'Home',
   components: {
     Name,
-    Space,
+    ParallaxTest,
     TriangleL,
     TriangleR,
     Projects,
@@ -48,5 +48,6 @@ export default defineComponent({
   flex-direction: column;
   max-width: 100%;
   overflow: hidden;
+  height: 100%;
 }
 </style>

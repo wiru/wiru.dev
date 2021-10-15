@@ -26,9 +26,12 @@ export default defineComponent({
     const stars = ref();
     const planet = ref();
     const redGiant = ref();
-
+    document.documentElement.style.setProperty('--vh100', `${window.innerHeight}px`);
     const styleObject = reactive({ marginTop: '' });
+
     onMounted(() => {
+      stars.value.style.height = `${window.innerHeight}px`;
+      console.log(stars.value.style.height);
       window.addEventListener('scroll', () => {
         const scr = window.scrollY;
         stars.value.style.left = `${scr / 10}px`;
@@ -51,15 +54,21 @@ export default defineComponent({
 
 // SPACE SCENE (BACKGROUND / STARS / PLANET)
 section {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  height: min(max(500px, 100vh));
-  overflow: hidden;
   width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  perspective: 1px;
+  perspective-origin: 0 0;
 }
+  // display: flex;
+  // flex-direction: column;
+  // position: relative;
+  // justify-content: center;
+  // align-items: center;
+  // height: min(max(500px, 100vh));
+  // overflow: hidden;
+  // width: 100%;
 section:before {
   content: '';
   position: absolute;
@@ -70,14 +79,9 @@ section:before {
   z-index: 3;
 }
 #stars {
-  position: absolute;
-  bottom: 50px;
-  min-height: 100vh;
-  min-width: 100vw;
-  transform: scale(1.2);
 }
 #planet {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
