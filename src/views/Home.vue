@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Name />
-    <ParallaxTest />
+    <Space />
     <TriangleL />
     <Projects />
     <TriangleR />
@@ -15,7 +15,7 @@
 <script lang="ts">
 import { defineComponent, inject } from 'vue';
 import Name from '../components/Home/Name.vue';
-import ParallaxTest from '../components/Home/ParallaxTest.vue';
+import Space from '../components/Home/Space.vue';
 import TriangleL from '../components/Home/TriangleL.vue';
 import TriangleR from '../components/Home/TriangleR.vue';
 import Projects from '../components/Home/Projects/Projects.vue';
@@ -26,7 +26,7 @@ export default defineComponent({
   name: 'Home',
   components: {
     Name,
-    ParallaxTest,
+    Space,
     TriangleL,
     TriangleR,
     Projects,

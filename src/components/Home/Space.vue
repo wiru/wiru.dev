@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="container" ref="container">
     <div id="shooting-stars">
     <i></i>
     <i></i>
@@ -9,7 +9,7 @@
     <img id="planet" ref="planet" src="@/assets/planet.png" alt="">
     <img id="redGiant" ref="redGiant" src="@/assets/red-giant.png" alt="">
     <img id="foreground" src="@/assets/foreground.png" alt="">
-    <h2 id="about_me" :style="styleObject"><span class="w">
+    <h2 id="about_me" ref="aboutMe"><span class="w">
       w</span>elcome to <span class="w">
       w</span>iru.dev</h2>
   </section>
@@ -17,33 +17,31 @@
 
 <script lang="ts">
 import {
-  defineComponent, onMounted, ref, reactive,
+  defineComponent, onMounted, ref,
 } from 'vue';
 
 export default defineComponent({
   name: 'Home',
   setup() {
+    const container = ref();
     const stars = ref();
     const planet = ref();
     const redGiant = ref();
-    document.documentElement.style.setProperty('--vh100', `${window.innerHeight}px`);
-    const styleObject = reactive({ marginTop: '' });
-
+    const aboutMe = ref();
     onMounted(() => {
+      container.value.style.height = `${window.innerHeight}px`;
       stars.value.style.height = `${window.innerHeight}px`;
-      console.log(stars.value.style.height);
       window.addEventListener('scroll', () => {
         const scr = window.scrollY;
-        stars.value.style.left = `${scr / 10}px`;
-        redGiant.value.style.top = `-${scr * 0.2}px`;
-        redGiant.value.style.left = `-${scr * 0.5}px`;
-        planet.value.style.top = `${scr * 0.2}px`;
-        planet.value.style.right = `-${scr * 1}px`;
-        styleObject.marginTop = `${scr * 1.5}px`;
+        console.log(`${window.innerHeight}px`);
+        stars.value.style.transform = `scale(1.2) translateX(-${scr / 10}px)`;
+        redGiant.value.style.transform = `translateX(-${scr * 0.2}px) translateY(-${scr * 0.2}px)`;
+        planet.value.style.transform = `translateX(${scr * 0.5}px) translateY(${scr * 0.3}px)`;
+        aboutMe.value.style.transform = `translateY(${scr * 1.5}px)`;
       });
     });
     return {
-      stars, planet, redGiant, styleObject,
+      container, stars, planet, redGiant, aboutMe,
     };
   },
 });
@@ -51,24 +49,16 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
-
 // SPACE SCENE (BACKGROUND / STARS / PLANET)
 section {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  perspective: 1px;
-  perspective-origin: 0 0;
 }
-  // display: flex;
-  // flex-direction: column;
-  // position: relative;
-  // justify-content: center;
-  // align-items: center;
-  // height: min(max(500px, 100vh));
-  // overflow: hidden;
-  // width: 100%;
 section:before {
   content: '';
   position: absolute;
@@ -79,9 +69,15 @@ section:before {
   z-index: 3;
 }
 #stars {
+  position: absolute;
+  min-width: 100vw;
+  transform: scale(1.2);
+}
+img {
+  transition: all 0s ease;
 }
 #planet {
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
   top: 0;
@@ -130,7 +126,6 @@ section:before {
   text-align: center;
   z-index: 1;
 }
-
 // SHOOTING STARS CSS ANIMATION
 #shooting-stars{
   position: absolute;
@@ -174,23 +169,19 @@ section:before {
     opacity: 0;
   }
 }
-
 @keyframes path2 {
   0% {
     transform: translate3d(0,0,0) rotate(-20deg);
   }
-
   15% {
     transform: translate3d(430px,640px,0) rotate(-20deg);
     opacity: 0;
   }
-
   100% {
     transform: translate3d(430px,640px,0) rotate(-20deg);
     opacity: 0;
   }
 }
-
 @keyframes path3 {
   0% {
     transform:translate3d(0,0,0) rotate(-50deg);
