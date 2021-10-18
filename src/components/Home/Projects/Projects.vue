@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <section>
+    <section id="top_section">
       <span>Projects</span>
       <p>More coming soon!</p>
     </section>
@@ -33,6 +33,14 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   background-color: $secondary;
+  #top_section {
+    padding-bottom: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
 }
 section {
   display: flex;
