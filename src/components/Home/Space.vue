@@ -12,7 +12,6 @@
     <h2 id="about_me" ref="aboutMe"><span class="w">
       w</span>elcome to <span class="w">
       w</span>iru.dev</h2>
-    <div id="info">{{info}}</div>
   </section>
 </template>
 
@@ -69,15 +68,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
 // SPACE SCENE (BACKGROUND / STARS / PLANET)
-#info {
-  position: fixed;
-  display: flex;
-  flex-wrap: wrap;
-  top: 0;
-  z-index: 999999999;
-  width: 300px;
-  background-color: white;
-}
+
 #container {
   display: flex;
   flex-direction: column;
