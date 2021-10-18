@@ -40,19 +40,7 @@ export default defineComponent({
 }
 html, body {
   background: $primary;
-  height: 100%;
 }
-body {
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
-}
-html {
-  height: -webkit-fill-available;
-}
-  // -webkit-overflow-scrolling: touch;
-  // overflow-x: auto;
-  // overflow-y: scroll;
-
 p {
   font-size: min(max(20px, 3vw), 40px);
   font-family: Bahnschrift Condensed;

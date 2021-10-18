@@ -8,40 +8,59 @@
     <img id="stars" ref="stars" src="@/assets/stars.svg" alt="">
     <img id="planet" ref="planet" src="@/assets/planet.png" alt="">
     <img id="redGiant" ref="redGiant" src="@/assets/red-giant.png" alt="">
-    <img id="foreground" src="@/assets/foreground.png" alt="">
+    <img id="foreground" ref="foreground" src="@/assets/foreground.png" alt="">
     <h2 id="about_me" ref="aboutMe"><span class="w">
       w</span>elcome to <span class="w">
       w</span>iru.dev</h2>
+    <div id="info">{{info}}</div>
   </section>
 </template>
 
 <script lang="ts">
 import {
-  defineComponent, onMounted, ref,
+  defineComponent, onMounted, ref, reactive,
 } from 'vue';
 
 export default defineComponent({
   name: 'Home',
   setup() {
     const container = ref();
+    const foreground = ref();
     const stars = ref();
     const planet = ref();
     const redGiant = ref();
     const aboutMe = ref();
+    const info = reactive({
+      baseHeight: window.innerHeight,
+      mobileHeightAdjustment: 0,
+      newHeight: 0,
+    });
+    function solarMotion() {
+      const scr = window.scrollY + info.mobileHeightAdjustment;
+      stars.value.style.transform = `scale(1.2) translateX(-${scr / 10}px)`;
+      redGiant.value.style.transform = `translateX(-${scr * 0.2}px) translateY(-${scr * 0.2}px)`;
+      planet.value.style.transform = `translateX(${scr * 0.5}px) translateY(${scr * 0.3}px)`;
+      aboutMe.value.style.transform = `translateY(${scr * 1.5}px)`;
+    }
     onMounted(() => {
       container.value.style.height = `${window.innerHeight}px`;
-      stars.value.style.height = `${window.innerHeight}px`;
+      stars.value.style.width = `${window.innerWidth}px`;
+      stars.value.style.minHeight = `${window.innerHeight}px`;
+      planet.value.style.marginTop = `${window.innerHeight / 2}px`;
+      redGiant.value.style.marginTop = `${window.innerHeight / 2}px`;
+
+      window.addEventListener('resize', () => {
+        info.newHeight = window.innerHeight;
+        info.mobileHeightAdjustment = info.newHeight - info.baseHeight;
+        solarMotion();
+      });
       window.addEventListener('scroll', () => {
-        const scr = window.scrollY;
-        console.log(`${window.innerHeight}px`);
-        stars.value.style.transform = `scale(1.2) translateX(-${scr / 10}px)`;
-        redGiant.value.style.transform = `translateX(-${scr * 0.2}px) translateY(-${scr * 0.2}px)`;
-        planet.value.style.transform = `translateX(${scr * 0.5}px) translateY(${scr * 0.3}px)`;
-        aboutMe.value.style.transform = `translateY(${scr * 1.5}px)`;
+        info.newHeight = window.innerHeight;
+        solarMotion();
       });
     });
     return {
-      container, stars, planet, redGiant, aboutMe,
+      info, container, stars, planet, redGiant, foreground, aboutMe,
     };
   },
 });
@@ -50,16 +69,25 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
 // SPACE SCENE (BACKGROUND / STARS / PLANET)
-section {
+#info {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  top: 0;
+  z-index: 999999999;
+  width: 300px;
+  background-color: white;
+}
+#container {
   display: flex;
   flex-direction: column;
-  position: sticky;
+  position: relative;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   width: 100%;
 }
-section:before {
+#container:before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -70,18 +98,18 @@ section:before {
 }
 #stars {
   position: absolute;
-  min-width: 100vw;
+  object-fit: cover;
+  bottom: 0;
   transform: scale(1.2);
 }
 img {
-  transition: all 0s ease;
+  transition: all 0 linear;
 }
 #planet {
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
-  margin-top: 50vh;
   margin-left: auto;
   margin-right: auto;
   width: 60vw;
@@ -94,7 +122,6 @@ img {
   left: 0;
   right: 0;
   top: 0;
-  margin-top: 50vh;
   margin-left: auto;
   margin-right: auto;
   width: 30vw;
