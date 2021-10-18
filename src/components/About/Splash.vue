@@ -35,14 +35,14 @@ section {
   animation: create 8s infinite steps(7);
   white-space: nowrap;
   overflow: hidden;
-  font-family: Consolas, monaco, monospace;
+  font-family: 'Roboto Mono', monospace;
 }
 
 #inspire {
   animation: inspire 8s infinite steps(8);
   white-space: nowrap;
   overflow: hidden;
-  font-family: Consolas, monaco, monospace;
+  font-family: 'Roboto Mono', monospace;
 }
 
 @keyframes cursor {

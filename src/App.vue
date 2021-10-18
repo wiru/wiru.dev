@@ -43,16 +43,16 @@ html, body {
 }
 p {
   font-size: min(max(20px, 3vw), 40px);
-  font-family: Bahnschrift Condensed;
+  font-family: 'PT Sans Narrow', sans-serif;
   text-align: center;
   padding: 20px;
 }
 span {
   font-size: $h-font-size;
-  font-family: Bahnschrift Condensed;
+  font-family: 'PT Sans Narrow', sans-serif;
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: auto;
