@@ -5,10 +5,7 @@
     </div>
     <div><router-link @click="store.methods.toggleSidebar" to="/">Home</router-link></div>
     <div><router-link @click="store.methods.toggleSidebar" to="/about">About</router-link></div>
-    <div>Contact</div>
-    <div><router-link @click="store.methods.toggleSidebar" to="/hire-me">Hire me</router-link></div>
     <div><router-link @click="store.methods.toggleSidebar" to="/feed">Newsfeed</router-link></div>
-    <div></div>
     <div></div>
     <div></div>
     <div></div>
@@ -36,7 +33,7 @@ export default defineComponent({
   transform: translateX(-250px);}
 nav {
   display: grid;
-  grid-row: repeat(12, 1fr);
+  grid-row: repeat(9, 1fr);
   position: fixed;
   top: 0;
   right: -250px;
@@ -53,7 +50,7 @@ nav {
     height: 100%;
     text-align: center;
     color: $off-white;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     transform: translateX(0);
     transition: transform .5s ease-in-out;
     // filter: drop-shadow(4px 4px 10px rgba(0,0,0,.5));
@@ -65,29 +62,29 @@ nav {
   }
   .exit-btn {;
       background-color: $tertiary;
-      height: 50px;
-      width: 50px;
+      height: 35px;
+      width: 30px;
       position: absolute;
       top: 10px;
       left: 10px;
       border: none;
       cursor: pointer;
   }
-  .exit-btn:after {
-      content: '';
-      bottom: 5px;
-      height: 40px;
-      border-left: 2px solid #fff;
-      position: absolute;
-      transform: rotate(45deg);
-  }
   .exit-btn:before {
       content: '';
       bottom: 5px;
-      height: 40px;
+      height: 30px;
       border-left: 2px solid #fff;
       position: absolute;
       transform: rotate(-45deg);
+  }
+  .exit-btn:after {
+      content: '';
+      bottom: 5px;
+      height: 30px;
+      border-left: 2px solid #fff;
+      position: absolute;
+      transform: rotate(45deg);
   }
 }
 a {

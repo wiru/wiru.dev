@@ -12,7 +12,7 @@
           Code Chrysalis Advanced Programming course and am looking
           for a long term role in Japan.
         </blockquote>
-        <img class="img1 animSet1" src="../assets/code.jpg" alt="">
+        <img class="img1 animSet1" rel="preload" src="../assets/code.jpg" alt="">
       </div>
     </section>
     <section class="skills">
@@ -191,6 +191,7 @@ blockquote {
   transform: translateX(50%);
   text-align: right;
   padding-right: 3vw;
+  transition-delay: 1s;
 }
 .bottom_quote {
   transform: translateX(-50%);
@@ -209,6 +210,7 @@ img {
   width: 40%;
   height: auto;
   transform: translateX(-50%);
+  transition-delay: 1s;
 }
 .img3 {
   // mask-image: url(../assets/white-overlay-stagger.svg);

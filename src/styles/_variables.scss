@@ -7,18 +7,18 @@ $tertiary-faded: #1591e4b4;
 $white: #ffffff;
 $off-white: #f2f2f2;
 $black: black;
-$main-font: Bahnschrift Condensed;
+$main-font: 'Lato', sans-serif;
 $h-font-size: min(max(40px, 6vw), 80px);
 $p-font-size: min(max(20px, 3vw), 30px);
 
 @mixin small-tile {
-	p { font-size: 1.1rem; padding: 10px; color: $black; background-color: unset; }
-  h1 { font-size: 1.2rem; height: 40%; padding: 10px; color: inherit; line-clamp: 1; background-color: unset; }
+	p { height: 90px; font-size: 1.1rem; padding: 10px; color: $black; background-color: unset; }
+  h1 { height: 60px; font-size: 1.2rem; height: 40%; padding: 10px; color: inherit; line-clamp: 1; background-color: unset; }
   img { display: none; }
 }
 @mixin medium-tile {
-  p { font-size: 1.2rem; padding: 10px; color: $black; background-color: unset; }
-  h1 { font-size: 1.3rem; color: inherit; padding: 0 10px 0 10px; background-color: unset; }
+  p { height: 90px; font-size: 1.2rem; padding: 0 10px; color: $black; background-color: unset; }
+  h1 { height: 56px; font-size: 1.3rem; color: inherit; padding: 0 10px 0 10px; background-color: unset; }
   img { width: 100%; height: 165px; position: relative; object-fit: cover;}
 }
 @mixin big-tile {

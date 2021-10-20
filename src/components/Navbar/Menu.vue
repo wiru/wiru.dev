@@ -33,8 +33,13 @@ nav {
   top: 0;
   right: 0;
   width: 100px;
-  height: 100%;
+  height: 60px;
   cursor: pointer;
+}
+nav:focus {
+  outline: none;
+  box-shadow: none;
+  background-color: none;
 }
 .menu {
   position: absolute;

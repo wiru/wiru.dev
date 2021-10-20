@@ -70,7 +70,7 @@ span {
   opacity: 0;
 }
 .route-enter-active {
-  transition: all 1s ease-out;
+  transition: all 2s ease-out;
 }
 .route-leave-active {
   transition: all 1s ease-in;

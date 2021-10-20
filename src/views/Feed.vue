@@ -1,25 +1,18 @@
 <template :key="articleLimit">
   <div class="root">
     <div class="introText">
-      <p id="header">An rss newsfeed from space.com. Demonstrating a responsive CSS Grid layout.
-      A proxy is set up in order to satisfy CORS requirements.</p>
-      </div>
-  <Suspense timeout="0">
-    <template #default>
-      <section>
-        <article v-for="index in articleLimit" :key="index">
-          <a :href="feedData[index-1].link">
-            <img :src=feedData[index-1].img alt="">
-            <h1>{{ feedData[index-1].title }}</h1>
-            <p>{{ feedData[index-1].content }}</p>
-          </a>
-        </article>
-      </section>
-    </template>
-    <template #fallback>
-      <div>Loading....</div>
-    </template>
-  </Suspense>
+      <span id="header">An rss newsfeed from space.com.
+        Demonstrating a responsive CSS Grid layout.</span>
+    </div>
+    <section>
+      <article v-for="index in articleLimit" :key="index">
+        <a :href="feedData[index-1].link">
+          <img :src=feedData[index-1].img alt="">
+          <h1>{{ feedData[index-1].title }}</h1>
+          <p>{{ feedData[index-1].content }}</p>
+        </a>
+      </article>
+    </section>
   </div>
 </template>
 
@@ -52,7 +45,7 @@ export default defineComponent({
       link: '',
     }]);
     async function fetch() {
-      const feed = await parser.parseURL('http://localhost:8080/feeds/all/');
+      const feed = await parser.parseURL('https://thingproxy.freeboard.io/fetch/https://space.com/feeds/all/');
       feed.items.slice(0, 12).forEach((item, index) => {
         if (item.guid && item.title && item.content && item.enclosure && item.isoDate) {
           feedData[index] = {
@@ -79,7 +72,6 @@ export default defineComponent({
     fetch();
 
     const articleLimitResize = () => {
-      console.log(articleLimit.value);
       if (articleLimit.value) {
         if (window.innerWidth < 650) {
           articleLimit.value = 6;
@@ -111,14 +103,30 @@ export default defineComponent({
   justify-content: center;
 }
 .introText {
-  width: 100%;
+  width: 100vw;
   background-color: $secondary;
-  padding: 1vw;
+  padding: 20px 100px 20px 20px;
   font-size: $p-font-size;
 }
 p {
   color: $primary;
   text-align: left;
+  text-overflow: ellipsis;
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+h1 {
+  color: $primary;
+  text-align: left;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+  overflow: hidden
 }
 section {
   display: grid;
@@ -246,9 +254,10 @@ a > * {
     padding: 10px;
   }
 #header {
-  max-width: 90%;
+  width: 60vw;
   color: $primary;
   text-align: left;
+  font-size: 1em;
 }
 a {
   text-decoration: none;

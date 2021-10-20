@@ -23,6 +23,6 @@ export default defineComponent({
 @import '@/styles/_variables.scss';
 nav {
   position: fixed;
-  z-index: 100;
+  z-index: 999999;
 }
 </style>

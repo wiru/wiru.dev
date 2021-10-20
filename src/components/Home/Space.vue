@@ -5,10 +5,13 @@
     <i></i>
     <i></i>
     </div>
-    <img id="stars" ref="stars" src="@/assets/stars.svg" alt="">
-    <img id="planet" ref="planet" src="@/assets/planet.png" alt="">
-    <img id="redGiant" ref="redGiant" src="@/assets/red-giant.png" alt="">
-    <img id="foreground" ref="foreground" src="@/assets/foreground.png" alt="">
+    <img decoding="sync" rel="preload" id="stars" ref="stars" src="@/assets/stars.svg" alt="">
+    <img decoding="sync" rel="preload" id="planet"
+    ref="planet" src="@/assets/planet.png" alt="">
+    <img decoding="sync" rel="preload" id="redGiant"
+    ref="redGiant" src="@/assets/red-giant.png" alt="">
+    <img decoding="sync" rel="preload" id="foreground"
+    ref="foreground" src="@/assets/foreground.png" alt="">
     <h2 id="about_me" ref="aboutMe"><span class="w">
       w</span>elcome to <span class="w">
       w</span>iru.dev</h2>
