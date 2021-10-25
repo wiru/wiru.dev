@@ -1,6 +1,6 @@
 <template>
   <section>
-    <a href="williamlmsaville@gmail.com">contact</a>
+    <a href="mailto:williamlmsaville@gmail.com">contact</a>
     <a href="http://github.com/wiru">GitHub</a>
   </section>
 </template>
