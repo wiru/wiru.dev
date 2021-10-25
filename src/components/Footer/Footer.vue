@@ -1,9 +1,7 @@
 <template>
   <section>
-    <a href="&#119;&#105;&#108;&#108;&#105;&#097;&#109;&#108;&#109;
-    &#115;&#097;&#118;&#105;&#108;&#108;&#101;&#064;&#103;
-    &#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">contact</a>
-    <a href="http://">GitHub</a>
+    <a href="williamlmsaville@gmail.com">contact</a>
+    <a href="http://github.com/wiru">GitHub</a>
   </section>
 </template>
 

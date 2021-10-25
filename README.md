@@ -1,4 +1,4 @@
-# wd-project
+# wiru.dev project
 
 ## Project setup
 ```
