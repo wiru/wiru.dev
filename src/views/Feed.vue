@@ -45,7 +45,7 @@ export default defineComponent({
       link: '',
     }]);
     async function fetch() {
-      const feed = await parser.parseURL('https://thingproxy.freeboard.io/fetch/https://space.com/feeds/all/');
+      const feed = await parser.parseURL('https://salty-tor-53161.herokuapp.com/https://space.com/feeds/all/');
       feed.items.slice(0, 12).forEach((item, index) => {
         if (item.guid && item.title && item.content && item.enclosure && item.isoDate) {
           feedData[index] = {

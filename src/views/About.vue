@@ -6,11 +6,12 @@
       <div id="triggerBox1"></div>
       <div class="content">
         <blockquote class="top_quote animSet1">
-          After graduating from UCLan in the UK I moved to Japan to
+          After graduating from the University of Central Lancashire in
+          the UK, I moved to Japan to
           teach English for a few years. Then I met my wonderful wife
           and decided to pursue a career in programming. I joined
           Code Chrysalis Advanced Programming course and am looking
-          for a long term role in Japan.
+          for a long term Front End role in Japan.
         </blockquote>
         <img class="img1 animSet1" rel="preload" src="../assets/code.jpg" alt="">
       </div>
