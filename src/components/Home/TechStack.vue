@@ -8,7 +8,7 @@
           <img class="logo" src="../../assets/vue-logo.svg" alt="Vue Logo">
           <img class="logo delay" src="../../assets/sass-logo.svg" alt="Sass Logo">
         </div>
-        <p>with no other dependancies</p>
+        <p>with no other dependencies</p>
   </section>
 </template>
 
